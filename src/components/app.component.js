@@ -10,12 +10,12 @@ export default {
     <div class="container">
              <h3>Campeonato Brasileiro - Séria A 2018</h3>
         <br/>    
-        <div class="row" v-if="view=='tabela'">
+        <div class="row" v-show="view=='tabela'">
             <div class="col-md-12">
             <time-list></time-list>
             </div>
         </div>
-        <div class="row">
+        <div class="row" v-show="view=='nogojogo'">
         <div class="col-md-12">
             <time-jogo></time-jogo>
         </div>

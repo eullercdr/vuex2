@@ -4,7 +4,7 @@ import _ from 'lodash';
 export default {
     template: `
    <div>
-        <a href="#" class="btn btn-primary" @click.prevent="createNovoJogo">Novo Jogo</a>
+        <a href="#" class="btn btn-primary" @click.prevent="showNovoJogo">Novo Jogo</a>
         <br/><br/>    
             <input type="text" class="form-control" v-model="filter">
             <table class="table table-striped">
@@ -61,15 +61,19 @@ export default {
         }
     },
     methods: {
-        createNovoJogo() {
-            let indexCasa = Math.floor(Math.random() * 20),
+        showNovoJogo() {
+            /*let indexCasa = Math.floor(Math.random() * 20),
                 indexFora = Math.floor(Math.random() * 20);
 
             this.novoJogo.casa.time = this.times[indexCasa];
             this.novoJogo.casa.gols = 0;
             this.novoJogo.fora.time = this.times[indexFora];
-            this.novoJogo.fora.gols = 0;
-            this.showView('novojogo');
+            this.novoJogo.fora.gols = 0;*/
+
+            this.$parent.showView('novojogo');
+            this.$parent.$children[0].initJogo(this.times);
+
+
         },
         sortBy(coluna) {
             this.order.keys = coluna;
